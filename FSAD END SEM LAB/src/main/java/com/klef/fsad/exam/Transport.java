@@ -13,14 +13,12 @@ public class Transport {
     private String name;
     private String date;
     private String status;
-    private String type; // Another relevant attribute
-    private double cost; // Another relevant attribute
+    private String type;
+    private double cost; 
 
-    // Default constructor
     public Transport() {
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
