@@ -11,7 +11,7 @@ import java.util.List;
 public class ClientDemo {
 
     public static void main(String[] args) {
-        // Configure and build SessionFactory
+    
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
 
@@ -80,7 +80,7 @@ public class ClientDemo {
         Session session = sessionFactory.openSession();
 
         try {
-            // HQL to view all records without a WHERE clause
+            
             String hql = "from Transport";
             Query<Transport> query = session.createQuery(hql, Transport.class);
             
@@ -90,14 +90,6 @@ public class ClientDemo {
                 System.out.println(t.toString());
             }
             
-            // Note on named parameters: 
-            // The instruction specifies "without using a WHERE clause using HQL with named parameters".
-            // Since named parameters in HQL are typically used within WHERE, HAVING, or ON clauses 
-            // to bind values conditionally, standard "View all" (from Transport) doesn't use parameters.
-            // If we strictly wanted to use a named parameter without a WHERE clause, 
-            // it's not applicable in standard select HQL unless it's an always-true condition like:
-            // "from Transport t where t.status != :dummy"
-            // However, the standard implementation of viewing all is exactly as provided above.
             
         } catch (Exception e) {
             e.printStackTrace();
